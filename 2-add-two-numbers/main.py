@@ -3,31 +3,32 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def add_two_numbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         result = ListNode()
-        curL1 = l1
-        curL2 = l2
+        cur_l1 = l1
+        cur_l2 = l2
         overflow = 0
-        currentRes = None
+        current_res = None
 
-        while curL1 is not None or curL2 is not None or overflow != 0:
-            if currentRes is None:
-                currentRes = result
+        while cur_l1 is not None or cur_l2 is not None or overflow != 0:
+            if current_res is None:
+                current_res = result
             else:
-                newNode = ListNode()
-                currentRes.next = newNode
-                currentRes = newNode
+                new_node = ListNode()
+                current_res.next = new_node
+                current_res = new_node
 
-            currentDigit = overflow
-            if curL1 is not None:
-                currentDigit += curL1.val
-                curL1 = curL1.next
-            if curL2 is not None:
-                currentDigit += curL2.val
-                curL2 = curL2.next
+            current_digit = overflow
+            if cur_l1 is not None:
+                current_digit += cur_l1.val
+                cur_l1 = cur_l1.next
+            if cur_l2 is not None:
+                current_digit += cur_l2.val
+                cur_l2 = cur_l2.next
 
-            currentRes.val = currentDigit % 10
-            overflow = currentDigit // 10
+            current_res.val = current_digit % 10
+            overflow = current_digit // 10
 
         return result
