@@ -1,3 +1,3 @@
 # leet-code-tasks
 
-Leet code tasks. Python solutions.
+Leet code tasks.
