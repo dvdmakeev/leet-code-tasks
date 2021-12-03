@@ -11,6 +11,55 @@
  *     }
  * }
  */
+ 
+public class SolutionIterative
+{
+    public bool IsSymmetric(TreeNode root) 
+    {
+        if (root == null)
+        {
+            return true;
+        }
+        
+        var nodesToCompare = new Stack<TreeNode>();
+        nodesToCompare.Push(root.left);
+        nodesToCompare.Push(root.right);
+        while (nodesToCompare.Count > 0)
+        {
+            var right = nodesToCompare.Pop();
+            if (nodesToCompare.Count == 0)
+            {
+                return false;
+            }
+            
+            var left = nodesToCompare.Pop();
+            if (right != null && left != null)
+            {
+                if (right.val != left.val)
+                {
+                    return false;
+                }
+                
+                nodesToCompare.Push(left.left);
+                nodesToCompare.Push(right.right);
+                
+                nodesToCompare.Push(right.left);
+                nodesToCompare.Push(left.right);
+            }
+            else if (right == null && left == null)
+            {
+                continue;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+
 public class Solution 
 {
     public bool IsSymmetric(TreeNode root) 
