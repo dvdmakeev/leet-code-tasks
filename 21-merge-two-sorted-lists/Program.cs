@@ -9,6 +9,42 @@
  *     }
  * }
  */
+ public class RecursiveSolution 
+{
+    public ListNode MergeTwoLists(ListNode l1, ListNode l2) 
+    {
+        ListNode preTail = new ListNode(0);
+        MergeTwoListsRec(l1, l2, preTail);
+            
+        return preTail.next;
+    }
+    
+    private void MergeTwoListsRec(ListNode l1, ListNode l2, ListNode mergedListTail)
+    {
+        if (l1 != null && l2 != null)
+        {
+            if (l1.val <= l2.val)
+            {
+                mergedListTail.next = l1;
+                MergeTwoListsRec(l1.next, l2, mergedListTail.next);
+            }
+            else
+            {
+                mergedListTail.next = l2;
+                MergeTwoListsRec(l1, l2.next, mergedListTail.next);
+            }
+        }
+        else if (l1 == null)
+        {
+            mergedListTail.next = l2;
+        }
+        else if (l2 == null)
+        {
+            mergedListTail.next = l1;
+        }
+    }
+}
+ 
 public class Solution 
 {
     public ListNode MergeTwoLists(ListNode l1, ListNode l2) 
