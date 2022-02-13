@@ -1,3 +1,5 @@
+// Proof
+// https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/discuss/1243428/Python-greedy-with-explanation
 public class Solution 
 {
     public int MinPairSum(int[] nums) 
