@@ -1,3 +1,3 @@
-# leet-code-tasks
+# Leet code tasks
 
-Leet code tasks
+This repository contains my LeetCode practice.
